@@ -32,10 +32,7 @@ export const store = new Vuex.Store({
         description: 'Vue, Vuetify and Firebase javascript workshop'
       }
     ],
-    user: {
-      id: '1',
-      registeredMeetups: [ '1', '2', '3' ]
-    },
+    user: null,
     loading: false,
     error: null
   },
