@@ -87,6 +87,7 @@
   export default {
     data () {
       return {
+        id: '',
         title: '',
         location: '',
         imageUrl: '',
@@ -126,7 +127,8 @@
           location: this.location,
           imageUrl: this.imageUrl,
           description: this.description,
-          date: this.submittableDateTime
+          date: this.submittableDateTime,
+          id: '4'
         }
         this.$store.dispatch('createMeetup', meetupData)
         this.$router.push('/meetups')

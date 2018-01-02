@@ -59,7 +59,7 @@ export const store = new Vuex.Store({
       state.error = null
     }
   },
-  // actions: {
+  actions: {
   //   loadMeetups ({commit}) {
   //     commit('setLoading', true)
   //     firebase.database().ref('meetups').once('value')
@@ -86,15 +86,18 @@ export const store = new Vuex.Store({
   //         }
   //       )
   //   },
-  //   createMeetup ({commit, getters}, payload) {
-  //     const meetup = {
-  //       title: payload.title,
-  //       location: payload.location,
-  //       imageUrl: payload.imageUrl,
-  //       description: payload.description,
-  //       date: payload.date.toISOString(),
-  //       creatorId: getters.user.id
-  //     }
+    createMeetup ({ commit, getters }, payload) {
+      const meetup = {
+        id: payload.id,
+        title: payload.title,
+        location: payload.location,
+        imageUrl: payload.imageUrl,
+        description: payload.description,
+        date: payload.date.toISOString(),
+        creatorId: getters.user.id
+      }
+      commit('createMeetup', meetup)
+    }
   //     firebase.database().ref('meetups').push(meetup)
   //       .then((data) => {
   //         const key = data.key
@@ -162,7 +165,7 @@ export const store = new Vuex.Store({
   //   clearError ({commit}) {
   //     commit('clearError')
   //   }
-  // },
+  },
   getters: {
     loadedMeetups (state) {
       return state.loadedMeetups.sort((meetupA, meetupB) => {
