@@ -56,17 +56,17 @@
           </v-layout>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
-              <h4>Choose a Data & Time</h4>
+              <h4>Choose a Date and Time</h4>
             </v-flex>
           </v-layout>
           <v-layout row class="mb-2">
             <v-flex xs12 sm6 offset-sm3>
-              <v-date-picker v-model="date"></v-date-picker>
+              <v-date-picker landscape v-model="date"></v-date-picker>
             </v-flex>
           </v-layout>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
-              <v-time-picker v-model="time" format="24hr"></v-time-picker>
+              <v-time-picker landscape v-model="time" format="24hr"></v-time-picker>
             </v-flex>
           </v-layout>
           <v-layout row>
