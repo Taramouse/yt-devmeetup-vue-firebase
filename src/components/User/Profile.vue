@@ -1,5 +1,5 @@
 <template>
   <div>
-    <p>The User Page</p>
+    <h2 class="text-xs-center">Your Profile Page</h2>
   </div>
 </template>
