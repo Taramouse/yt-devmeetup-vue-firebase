@@ -30,7 +30,7 @@
           </v-layout>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
-              <v-btn raised class="info" @click="onPickFile">Upload Image</v-btn>
+              <v-btn raised class="primary" @click="onPickFile">Upload Image</v-btn>
               <input
               type="file"
               style="display: none"
@@ -60,20 +60,30 @@
               <h4>Choose a Date and Time</h4>
             </v-flex>
           </v-layout>
-          <v-layout row class="mb-2">
+          <v-layout row class="hidden-sm-and-down mb-2">
             <v-flex xs12 sm6 offset-sm3>
               <v-date-picker landscape v-model="date"></v-date-picker>
             </v-flex>
           </v-layout>
-          <v-layout row>
+          <v-layout row  class="hidden-sm-and-down">
             <v-flex xs12 sm6 offset-sm3>
               <v-time-picker landscape v-model="time" format="24hr"></v-time-picker>
+            </v-flex>
+          </v-layout>
+           <v-layout row class="hidden-md-and-up mb-2">
+            <v-flex xs12 sm6 offset-sm3>
+              <v-date-picker portrait v-model="date"></v-date-picker>
+            </v-flex>
+          </v-layout>
+          <v-layout row  class="hidden-md-and-up">
+            <v-flex xs12 sm6 offset-sm3>
+              <v-time-picker portrait v-model="time" format="24hr"></v-time-picker>
             </v-flex>
           </v-layout>
           <v-layout row>
             <v-flex xs12 sm6 offset-sm3>
               <v-btn
-                class="success"
+                class="primary"
                 :disabled="!formIsValid"
                 type="submit">Create Meetup</v-btn>
             </v-flex>

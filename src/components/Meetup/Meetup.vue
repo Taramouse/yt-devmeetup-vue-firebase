@@ -4,15 +4,16 @@
       <v-flex xs12>
         <v-card>
           <v-card-title>
-            <h6 class="primary--text">{{ meetup.title }}</h6>
+            <h4 class="info--text">{{ meetup.title }}</h4>
           </v-card-title>
           <v-card-media
             :src="meetup.imageUrl"
             height="400px"
           ></v-card-media>
           <v-card-text>
-            <div class="info--text">{{ meetup.date | date }} - {{ meetup.location }}</div>
-            <div>{{ meetup.description }}</div>
+            <div class="info--text big">{{ meetup.date | date }} in {{ meetup.location }}</div>
+            <h4 class="mt-2">Description</h4>
+            <p class="big">{{ meetup.description }}</p>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
@@ -34,3 +35,10 @@
     }
   }
 </script>
+
+<style>
+  .big {
+    font-size: 24px;
+  }
+</style>
+

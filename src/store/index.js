@@ -69,6 +69,7 @@ export const store = new Vuex.Store({
               id: key,
               title: obj[key].title,
               description: obj[key].description,
+              location: obj[key].location,
               imageUrl: obj[key].imageUrl,
               date: obj[key].date,
               creatorId: obj[key].creatorId
@@ -181,7 +182,7 @@ export const store = new Vuex.Store({
       })
     },
     featuredMeetups (state, getters) {
-      return getters.loadedMeetups.slice(0, 5)
+      return getters.loadedMeetups.slice(0, 6)
     },
     loadedMeetup (state) {
       return (meetupId) => {
