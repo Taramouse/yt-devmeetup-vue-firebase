@@ -59,6 +59,7 @@ export const store = new Vuex.Store({
   actions: {
     loadMeetups ({commit}) {
       commit('setLoading', true)
+      // replace once with on for realtime updates from firebase.
       firebase.database().ref('meetups').once('value')
         .then((data) => {
           const meetups = []
@@ -79,25 +80,38 @@ export const store = new Vuex.Store({
         .catch(
           (error) => {
             console.log(error)
-            commit('setLoading', false)
+            commit('setLoading', true)
           }
         )
     },
-    createMeetup ({commit, getters}, payload) {
+    createMeetup ({ commit, getters }, payload) {
       const meetup = {
         title: payload.title,
         location: payload.location,
-        imageUrl: payload.imageUrl,
         description: payload.description,
         date: payload.date.toISOString(),
         creatorId: getters.user.id
       }
+      let imageUrl
+      let key
       firebase.database().ref('meetups').push(meetup)
         .then((data) => {
-          const key = data.key
-          // Reach out to firebase and store it
+          key = data.key
+          return key
+        })
+        .then(key => {
+          const filename = payload.image.name
+          const ext = filename.slice(filename.lastIndexOf('.'))
+          return firebase.storage().ref('meetups/' + key + '.' + ext).put(payload.image)
+        })
+        .then(fileData => {
+          imageUrl = fileData.metadata.downloadURLs[0]
+          return firebase.database().ref('meetups').child(key).update({ imageUrl: imageUrl })
+        })
+        .then(() => {
           commit('createMeetup', {
             ...meetup,
+            imageUrl: imageUrl,
             id: key
           })
         })
