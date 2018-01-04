@@ -101,7 +101,7 @@
         id: '',
         title: '',
         location: '',
-        imageUrl: null,
+        imageUrl: '',
         image: null,
         description: '',
         date: new Date(),
