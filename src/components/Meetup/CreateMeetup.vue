@@ -65,7 +65,7 @@
               <v-date-picker landscape v-model="date"></v-date-picker>
             </v-flex>
           </v-layout>
-          <v-layout row  class="hidden-sm-and-down">
+          <v-layout row class="hidden-sm-and-down">
             <v-flex xs12 sm6 offset-sm3>
               <v-time-picker landscape v-model="time" format="24hr"></v-time-picker>
             </v-flex>
