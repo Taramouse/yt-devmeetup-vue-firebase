@@ -19,7 +19,7 @@ Vue.component('app-alert', AlertCmp)
 Vue.component('app-edit-meetup-details-dialogue', EditMeetupDetailsDialogue)
 Vue.component('app-edit-meetup-date-dialogue', EditMeetupDateDialogue)
 Vue.component('app-edit-meetup-time-dialogue', EditMeetupTimeDialogue)
-Vue.component('app-meetup-register-dialgue', RegisterDialogue)
+Vue.component('app-meetup-register-dialogue', RegisterDialogue)
 
 /* eslint-disable no-new */
 new Vue({
@@ -39,6 +39,7 @@ new Vue({
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.$store.dispatch('autoSignIn', user)
+        this.$store.dispatch('fetchUserData')
       }
     })
     this.$store.dispatch('loadMeetups')
