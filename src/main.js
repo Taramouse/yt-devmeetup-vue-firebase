@@ -9,6 +9,7 @@ import AlertCmp from './components/Shared/Alert.vue'
 import EditMeetupDetailsDialogue from './components/Meetup/Edit/EditMeetupDetailsDialogue.vue'
 import EditMeetupDateDialogue from './components/Meetup/Edit/EditMeetupDateDialogue.vue'
 import EditMeetupTimeDialogue from './components/Meetup/Edit/EditMeetupTimeDialogue.vue'
+import RegisterDialogue from './components/Meetup/Register/RegisterDialogue.vue'
 
 Vue.use(Vuetify)
 Vue.config.productionTip = false
@@ -18,6 +19,7 @@ Vue.component('app-alert', AlertCmp)
 Vue.component('app-edit-meetup-details-dialogue', EditMeetupDetailsDialogue)
 Vue.component('app-edit-meetup-date-dialogue', EditMeetupDateDialogue)
 Vue.component('app-edit-meetup-time-dialogue', EditMeetupTimeDialogue)
+Vue.component('app-meetup-register-dialgue', RegisterDialogue)
 
 /* eslint-disable no-new */
 new Vue({
